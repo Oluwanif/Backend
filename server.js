@@ -79,10 +79,10 @@ app.put('/api/products/:id', async (req, res) => {
     console.log('Updating product:', productId, updatedProduct); // Log the update request for debugging
 
     // Validate the update payload
-    // if (!updatedProduct) {
-    //   console.error('Invalid product update data:', updatedProduct);
-    //   return res.status(400).json({ success: false, message: 'Invalid update data' });
-    // }
+    if (!updatedProduct) {
+      console.error('Invalid product update data:', updatedProduct);
+      return res.status(400).json({ success: false, message: 'Invalid update data' });
+    }
 
     // Update the product in the database
     const result = await productsCollection.updateOne(
