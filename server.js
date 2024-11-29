@@ -85,10 +85,10 @@ app.put('/api/products/:id', async (req, res) => {
     }
 
     // Update the product in the database
-    // const result = await productsCollection.updateOne(
-    //   { id: productId }, // Match the product by `id`
-    //   { $set: updatedProduct } // Update the fields with provided data
-    // );
+    const result = await productsCollection.updateOne(
+      { id: productId }, // Match the product by `id`
+      { $set: updatedProduct } // Update the fields with provided data
+    );
 
     if (result.matchedCount === 0) {
       console.error('Product not found:', productId);
